@@ -3,6 +3,53 @@ Selectores
 Declaraciones
 Propiedades
 Valores */
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?26ty5m");
+  src: url("../fonts/icomoon.eot?26ty5m#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?26ty5m") format("truetype"),
+    url("../fonts/icomoon.woff?26ty5m") format("woff"),
+    url("../fonts/icomoon.svg?26ty5m#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e9bd";
+}
+.icon-cross:before {
+  content: "\ea0f";
+  display: none;
+}
+.icon-facebook:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-github:before {
+  content: "\eab0";
+}
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -25,6 +72,7 @@ h1 {
   letter-spacing: -1.2px;
   /* text-transform: uppercase; */
   margin: 0;
+  text-shadow: 1px 2px 2px #000;
 }
 
 h2 {
@@ -46,11 +94,12 @@ ul {
 figure {
   margin: 0;
 }
+
 .container {
   /* border: 1px red solid; */
-  width: 1000px;
+  max-width: 1000px;
+  flex: 1; /* Indica el 100%, el 0 indica 0%*/
   margin: 0 auto;
-
   display: inherit;
   align-items: inherit;
   justify-content: inherit;
@@ -65,6 +114,7 @@ figure {
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  flex-wrap: wrap;
 }
 
 .header ul {
@@ -104,6 +154,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .hero-images {
@@ -124,13 +175,13 @@ figure {
   background: white;
   border: 1px solid gray;
   border-radius: 10px;
-  display: flex;
   box-sizing: border-box;
-  margin-bottom: 15px;
   padding: 20px;
+  margin-bottom: 15px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .project strong {
@@ -154,8 +205,17 @@ figure {
 .project-description {
   font-size: 20px;
 }
+
 .project-details {
-  width: 500px;
+  width: 50%;
+}
+
+.project-imagesCointainer {
+  width: 50%;
+}
+
+.project-imagesCointainer img {
+  max-width: 100%;
 }
 
 .event-list {
@@ -168,8 +228,8 @@ figure {
 }
 
 .event {
-  margin: 10px;
-  width: 480px;
+  margin: 1%;
+  width: 48%;
   flex-shrink: 0;
   border-radius: 10px;
   overflow: hidden;
@@ -211,6 +271,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .form-email input {
@@ -250,6 +311,10 @@ figure {
   width: 50px;
   margin: 0 10px;
   background-size: 50px 50px;
+  color: white;
+  text-decoration: none;
+  font-size: 40px;
+  padding: 5px;
 }
 
 .social-link.twitter {
@@ -274,6 +339,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer img {
@@ -282,8 +348,225 @@ figure {
 .footer a {
   color: white;
 }
+
+.html-video {
+  width: 100%;
+  height: auto;
+}
+.youtube-video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.flexible-video {
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  background: blue;
+  position: relative;
+
+  /* Para calcular la proporción de nuestro vídeo:
+  Si es 16:9, su fórmula es:
+  Height * 100 / Width
+
+  315 * 100 / 560 = 56.25
+  
+  Si es 9:16, la fórmula indicada es:
+  Width * 100 / Height */
+}
 /*
 font-family: 'Source Sans Pro', sans-serif;
 font-family: 'Fjalla One', sans-serif;
-font-family: 'Montserrat', sans-serif;
 */
+
+/* Desktop First (HASTA) Empezar del MQ más grande */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 1em;
+  }
+
+  .hero {
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 2em;
+  }
+
+  h1 {
+    font-size: 2em;
+    z-index: 2;
+  }
+
+  .hero-images {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.burger-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(27, 33, 39, 0.8);
+  display: none;
+  line-height: 40px;
+  text-align: center;
+  position: fixed;
+  z-index: 4;
+  left: 5px;
+  top: 5px;
+  color: white;
+  /* font-size: 25px; */
+}
+
+@media screen and (max-width: 767px) {
+  .burger-button {
+    display: block;
+  }
+  .header {
+    display: block;
+    height: auto;
+  }
+  .header ul {
+    display: block;
+  }
+  .header ul li {
+    height: 50px;
+  }
+  .header a {
+    justify-content: center;
+    font-size: 2em;
+    height: 40px;
+    margin: 0.5em;
+    border: 1px solid white;
+  }
+  .header figure {
+    text-align: center;
+  }
+
+  .menu {
+    position: fixed;
+    background-color: rgba(29, 37, 44, 0.9);
+    z-index: 3;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+  }
+
+  .menu.is-active {
+    left: 0;
+  }
+
+  .project {
+    display: block;
+  }
+
+  .project-imagesCointainer {
+    width: auto;
+    text-align: center;
+  }
+
+  .project-details {
+    width: auto;
+    font-size: 16px;
+  }
+
+  .project-title {
+    font-size: 1.5em;
+    margin: 0.3em, 0;
+  }
+
+  .project-url {
+    font-size: 1em;
+  }
+
+  .project-course {
+    font-size: 1.7em;
+  }
+
+  .project-date {
+    font-size: 1em;
+  }
+  .project-description {
+    font-size: 0.8em;
+  }
+  .project-course,
+  .project-date,
+  .project-url {
+    margin: 0.3em, 0;
+  }
+
+  .event {
+    width: auto;
+    flex-shrink: initial;
+  }
+
+  .event img {
+    width: 100%;
+    max-height: 250px;
+    object-position: 25% 25%;
+  }
+}
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  .project-details {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .event-details {
+    margin: -2em 0.5em 0.5em;
+    padding: 1em;
+  }
+
+  .contact {
+    height: auto;
+    padding: 1em 0em;
+    text-align: center;
+    display: block;
+  }
+
+  .form-email button {
+    margin: 1em auto;
+    font-size: 16px;
+  }
+  .form-email h3 {
+    margin-top: 0;
+  }
+
+  .footer {
+    display: block;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+}
+@media screen and (max-width: 320px) {
+  .project-details {
+    width: auto;
+    font-size: 8px;
+  }
+  h1 {
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .hero {
+    padding: 2em 1em;
+  }
+}

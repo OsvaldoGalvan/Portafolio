@@ -1,0 +1,18 @@
+/* Desktop First HASTA */
+@media screen and (max-width: 1023x) {
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (max-width: 479px) {
+}
+@media screen and (max-width: 319px) {
+}
+/* Mobile First DESDE */
+@media screen and (min-width: 320px) {
+}
+@media screen and (min-width: 480px) {
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 1024px) {
+}

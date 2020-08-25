@@ -10,8 +10,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="estilos/style.css" />
+    <!-- <link rel="stylesheet" href="estilos/media.css" media="screen and (max-width:760px)" /> -->
   </head>
   <body>
+    <i class="icon-cross burger-button" id="#cross-menu"></i>
+    <i class="icon-menu burger-button" id="burger-menu"></i>
+
     <header class="header">
       <div class="container">
         <figure class="Logo">
@@ -55,7 +59,7 @@
               neque at iure? Qui, similique. Iure, beatae!
             </p>
           </div>
-          <figure class="project-imagesCointeiner">
+          <figure class="project-imagesCointainer">
             <img
               class="project-immages"
               src="images/platzi-video-react-native.png"
@@ -80,7 +84,7 @@
               neque at iure? Qui, similique. Iure, beatae!
             </p>
           </div>
-          <figure class="project-imagesCointeiner">
+          <figure class="project-imagesCointainer">
             <img
               class="project-immages"
               src="images/platzi-video-react-native.png"
@@ -126,7 +130,15 @@
         </article>
         <article class="event">
           <figure class="event-imagesCointeiner">
-            <img class="event-images" src="images/platzi-conf.jpg" alt="Conferencia" width="500" />
+            <video
+              class="html-video"
+              src="videos/f8.mp4"
+              width="1280"
+              height="720"
+              controls
+              poster="images/f8.JPG"
+            ></video>
+            <!-- <img class="event-images" src="images/platzi-conf.jpg" alt="Conferencia" width="500" /> -->
           </figure>
           <div class="event-details">
             <h3 class="evet-title">Experiencia profesional</h3>
@@ -140,7 +152,17 @@
         </article>
         <article class="event">
           <figure class="event-imagesCointeiner">
-            <img class="event-images" src="images/platzi-conf.jpg" alt="Conferencia" width="500" />
+            <div class="flexible-video">
+              <iframe
+                width="560"
+                height="315"
+                class="youtube-video"
+                src="https://www.youtube.com/embed/vwrE2UmsXso"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           </figure>
           <div class="event-details">
             <h3 class="evet-title">Experiencia profesional</h3>
@@ -162,10 +184,10 @@
           <button>Enviar</button>
         </form>
         <div class="social">
-          <a class="social-link twitter" href="#"></a>
-          <a class="social-link facebook" href="#"></a>
-          <a class="social-link github" href="#"></a>
-          <a class="social-link instagram" href="#"></a>
+          <a class="social-link icon-twitter" href="#"></a>
+          <a class="social-link icon-facebook" href="#"></a>
+          <a class="social-link icon-github" href="#"></a>
+          <a class="social-link icon-instagram" href="#"></a>
         </div>
       </div>
     </section>
@@ -175,9 +197,42 @@
           <p>Curso de desarrollo Web <img src="images/platzi.png" width="80px" alt="Logo" /></p>
         </div>
         <div>
-          <p>Diseñado por <\3</p>
+          <p>Diseñado con 💕 por:</p>
         </div>
       </div>
     </footer>
+    <script>
+      const menu = document.querySelector(".menu");
+      const burgerButton = document.querySelector("#burger-menu");
+
+      const ipad = window.matchMedia("screen and (max-width: 767px)");
+
+      ipad.addListener(validation);
+
+      function validation(event) {
+        if (event.matches) {
+          burgerButton.addEventListener("click", showMenu);
+        } else {
+          burgerButton.removeEventListener("click", showMenu);
+        }
+      }
+      // console.log("Hola Mundo");
+      // console.log(document.querySelector('.menu'));
+
+      // const crossButton = document.querySelector("#cross-menu");
+
+      // console.log(menu);
+      // console.log(burgerButton);
+
+      // crossButton.addEventListener("click", hideMenu);
+
+      function showMenu() {
+        if (menu.classList.contains("is-active")) {
+          menu.classList.remove("is-active");
+        } else {
+          menu.classList.add("is-active");
+        }
+      }
+    </script>
   </body>
 </html>
